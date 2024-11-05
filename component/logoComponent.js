@@ -9,6 +9,37 @@ class LogoComponent extends HTMLElement {
     this.attachShadow({ mode: "open" }); // Shadow DOM
   }
 
+  static get observedAttributes() {
+    return ["text", "animation", "color"];
+  }
+
+  // Méthode appelée lorsque l'un des attributs observés change
+  attributeChangedCallback(name, oldValue, newValue) {
+    if (oldValue !== newValue) {
+      this.updateAttributes();
+    }
+  }
+
+  updateAttributes() {
+    const text = this.getAttribute("text") || "Default Text";
+    const animation = this.getAttribute("animation") || "";
+    const color = this.getAttribute("color") || "black";
+
+    const logoElement = this.shadowRoot.querySelector("#logo");
+
+    // Mettre à jour le texte du logo
+    logoElement.textContent = text;
+
+    // Appliquer la couleur au texte
+    logoElement.style.color = color;
+
+    // Mettre à jour les animations
+    logoElement.className = ""; // Supprime toutes les classes d'animation
+    if (animation) {
+        logoElement.classList.add(animation);
+    }
+}
+
   async connectedCallback() {
     const templateHTML = await loadFile("./component/logoComponent.html");
 
@@ -275,18 +306,20 @@ class LogoComponent extends HTMLElement {
           newSize; // Afficher la nouvelle taille
       });
 
-      this.shadowRoot.querySelector('#upload-image').addEventListener('change', function(event) {
+    this.shadowRoot
+      .querySelector("#upload-image")
+      .addEventListener("change", function (event) {
         const file = event.target.files[0]; // Récupère le fichier sélectionné
         if (file) {
-            const reader = new FileReader(); // Utilise FileReader pour lire le fichier
-            reader.onload = function(e) {
-                const imgElement = this.shadowRoot.querySelector('#resizable-image'); // L'image dans le logo
-                imgElement.src = e.target.result; // Définit la source de l'image à partir du fichier chargé
-            }.bind(this);
-            reader.readAsDataURL(file); // Lit le fichier sous forme d'URL Data
+          const reader = new FileReader(); // Utilise FileReader pour lire le fichier
+          reader.onload = function (e) {
+            const imgElement =
+              this.shadowRoot.querySelector("#resizable-image"); // L'image dans le logo
+            imgElement.src = e.target.result; // Définit la source de l'image à partir du fichier chargé
+          }.bind(this);
+          reader.readAsDataURL(file); // Lit le fichier sous forme d'URL Data
         }
-    });
-    
+      });
 
     this.shadowRoot
       .querySelector("#backgroundColor")
@@ -393,6 +426,8 @@ class LogoComponent extends HTMLElement {
             });
         });
       });
+
+      this.updateAttributes();
   }
 }
 
