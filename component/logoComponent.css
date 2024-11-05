@@ -1,0 +1,438 @@
+body {
+  font-family: Arial, sans-serif;
+  color: #ffffff;
+  background-color: #1e1e1e;
+  margin: 0;
+  padding: 40px;
+}
+
+
+.general{
+  display: flex;
+  justify-content: center;
+  align-items: normal;
+  flex-direction: row;
+  padding: 0;
+  margin: 0;
+}
+
+@media (max-width: 850px) {
+  .general{
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .conteneur-logo, .logo-editor {
+    width: 100%; /* Prend toute la largeur sur mobile */
+    margin: 0; /* Supprime l'espace entre les divs */
+    padding: 0; /* Réduire le padding sur les petits écrans */
+  }
+
+  #background-logo {
+    height: 200px; /* Ajuster la hauteur pour mobile */
+  }
+
+  input, select {
+    width: 100%; /* Élargir les inputs et selects sur mobile */
+  }
+}
+
+.conteneur-logo{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: #fff solid 2px;
+  border-radius: 20px;
+  flex-direction: column;
+  width: fit-content;
+  height: fit-content;
+  padding: 30px;
+  margin: 40px;
+  width: 90%; /* Largeur pour ordinateur */
+  max-width: 600px; /* Limite la largeur maximale */
+
+}
+
+.logo-editor{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: #fff solid 2px;
+  border-radius: 20px;
+  flex-direction: column;
+  width: fit-content;
+  height: fit-content;
+  padding: 30px;
+  width: 90%; /* Largeur pour ordinateur */
+  max-width: 600px; /* Limite la largeur maximale */
+
+}
+
+#background-logo {
+  display: flex;
+  height: 318px; /* Ajuster en fonction du besoin */
+  width: 318px; /* Ajuster en fonction du besoin */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  overflow: hidden;
+  position: relative;
+  border: 2px solid #8c7b71;
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+}
+
+#logo {
+  display: inline-block;
+  background-clip: text;
+  -webkit-background-clip: text;
+  height: fit-content;
+  align-items: flex-start;
+  margin: 0;
+  padding: 0;
+  cursor: move;
+  color: #fff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+#draggable-logo{
+  display: inline-block;
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+.logo-editor > div {
+  margin-bottom: 10px; /* Espacement entre les divs */
+  padding-bottom: 10px;
+  border-bottom: 1px solid #808080;
+}
+
+input, select {
+  background-color: grey; /* Remplacez par la couleur souhaitée */
+  color: white; /* Couleur du texte */
+  border-radius: 3px;
+  padding: 5px;
+  border: solid 1px #B5B5B5;
+}
+
+input::placeholder {
+  color: white; /* Couleur du texte */
+}
+
+input[type="color"] {
+  padding: 0;
+}
+
+input[type="range"] {
+  height: 16px; /* Hauteur identique au texte */
+  vertical-align: center;
+  transform: translateY(10px);
+}
+
+.texture1 {
+  background-image: url("https://media2.giphy.com/media/l41YcgNSPj6Wy1KyQ/giphy.gif");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.texture2 {
+  background-image: url("https://media4.giphy.com/media/3oEduXpUkXpRgAxfAk/giphy.gif");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.texture3 {
+  background-image: url("https://media.giphy.com/media/gNke2UrUTopOg/giphy.gif");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.texture4 {
+  background-image: url("https://media.giphy.com/media/7Bgpw7PwdxoDC/giphy.gif");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.texture5 {
+  background-image: url("https://media.giphy.com/media/13mwsrXEUtSyZi/giphy.gif");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.texture6 {
+  background-image: url("https://media1.giphy.com/media/l3vR16pONsV8cKkWk/giphy.gif");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.apply-texture {
+  color: transparent; /* Rendre le texte transparent pour la texture */
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+#draggable-image {
+  position: absolute; /* Nécessaire pour déplacer avec transform */
+  cursor: move; /* Pour indiquer que l'élément est déplaçable */
+  padding: 0;
+  margin: 0;
+  
+}
+
+.draggable {
+  position: absolute;
+
+  font-size: 30px;
+  font-weight: bold;
+  cursor: move;
+  color: #000;
+  overflow: hidden;
+}
+
+.background-size {
+  display: flex;
+  flex-direction: column; /* Affiche les enfants verticalement */
+  padding: 10px; /* Ajoute de l'espace autour de la div */
+  border: 1px solid #ccc; /* Optionnel : ajoute une bordure */
+  border-radius: 5px; /* Optionnel : arrondit les coins */
+}
+
+.dimension-input {
+  display: flex; /* Aligne les labels et les inputs en ligne */
+  align-items: center; /* Aligne les items verticalement au centre */
+  margin: 5px 0; /* Ajoute un peu d'espace entre les lignes */
+}
+
+.dimension-input label {
+  margin-right: 10px; /* Ajoute de l'espace entre le label et l'input */
+}
+
+
+/*ANIMATION*/
+.flip-horizontal-bottom {
+  -webkit-animation: flip-horizontal-bottom 0.4s
+    cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite both;
+  animation: flip-horizontal-bottom 0.4s cubic-bezier(0.455, 0.03, 0.515, 0.955)
+    infinite both;
+}
+
+/* ----------------------------------------------
+ * Generated by Animista on 2024-10-11 16:37:29
+ * Licensed under FreeBSD License.
+ * See http://animista.net/license for more info. 
+ * w: http://animista.net, t: @cssanimista
+ * ---------------------------------------------- */
+
+/**
+ * ----------------------------------------
+ * animation flip-horizontal-bottom
+ * ----------------------------------------
+ */
+@-webkit-keyframes flip-horizontal-bottom {
+  0% {
+    -webkit-transform: rotateX(0);
+    transform: rotateX(0);
+  }
+  100% {
+    -webkit-transform: rotateX(-180deg);
+    transform: rotateX(-180deg);
+  }
+}
+@keyframes flip-horizontal-bottom {
+  0% {
+    -webkit-transform: rotateX(0);
+    transform: rotateX(0);
+  }
+  100% {
+    -webkit-transform: rotateX(-180deg);
+    transform: rotateX(-180deg);
+  }
+}
+
+/*-------------------------------------------------------------------------------------*/
+
+.shake-horizontal {
+  -webkit-animation: shake-horizontal 0.8s
+    cubic-bezier(0.455, 0.03, 0.515, 0.955) infinite both;
+  animation: shake-horizontal 0.8s cubic-bezier(0.455, 0.03, 0.515, 0.955)
+    infinite both;
+}
+/* ----------------------------------------------
+ * Generated by Animista on 2024-10-11 19:16:28
+ * Licensed under FreeBSD License.
+ * See http://animista.net/license for more info. 
+ * w: http://animista.net, t: @cssanimista
+ * ---------------------------------------------- */
+
+/**
+ * ----------------------------------------
+ * animation shake-horizontal
+ * ----------------------------------------
+ */
+@-webkit-keyframes shake-horizontal {
+  0%,
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+  10%,
+  30%,
+  50%,
+  70% {
+    -webkit-transform: translateX(-10px);
+    transform: translateX(-10px);
+  }
+  20%,
+  40%,
+  60% {
+    -webkit-transform: translateX(10px);
+    transform: translateX(10px);
+  }
+  80% {
+    -webkit-transform: translateX(8px);
+    transform: translateX(8px);
+  }
+  90% {
+    -webkit-transform: translateX(-8px);
+    transform: translateX(-8px);
+  }
+}
+@keyframes shake-horizontal {
+  0%,
+  100% {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+  }
+  10%,
+  30%,
+  50%,
+  70% {
+    -webkit-transform: translateX(-10px);
+    transform: translateX(-10px);
+  }
+  20%,
+  40%,
+  60% {
+    -webkit-transform: translateX(10px);
+    transform: translateX(10px);
+  }
+  80% {
+    -webkit-transform: translateX(8px);
+    transform: translateX(8px);
+  }
+  90% {
+    -webkit-transform: translateX(-8px);
+    transform: translateX(-8px);
+  }
+}
+
+/*-------------------------------------------------------------------------------------*/
+
+.shake-animate{
+  -webkit-animation:shake 5s ease 0s infinite normal;
+  -moz-animation:shake 5s ease 0s infinite normal;
+  -ms-animation:shake 5s ease 0s infinite normal;
+  animation:shake 5s ease 0s infinite normal;
+  }
+  
+  @-webkit-keyframes shake {
+  0%{ transform: rotate(-15deg); -webkit-transform: rotate(-15deg); }
+  2%{ transform: rotate(15deg); -webkit-transform: rotate(15deg); }
+  4%{ transform: rotate(-18deg); -webkit-transform: rotate(-18deg); }
+  6%{ transform: rotate(18deg); -webkit-transform: rotate(18deg); }
+  8%{ transform: rotate(-22deg); -webkit-transform: rotate(-22deg); }
+  10%{ transform: rotate(22deg); -webkit-transform: rotate(22deg); }
+  12%{ transform: rotate(-18deg); -webkit-transform: rotate(-18deg); }
+  14%{ transform: rotate(18deg); -webkit-transform: rotate(18deg); }
+  16%{ transform: rotate(-12deg); -webkit-transform: rotate(-12deg); }
+  18%{ transform: rotate(-12deg); -webkit-transform: rotate(-12deg); }
+  20%{ transform: rotate(0deg); -webkit-transform: rotate(0deg); }
+  }
+  
+  @keyframes shake {
+  0%{ transform: rotate(-15deg); -ms-transform: rotate(-15deg); }
+  2%{ transform: rotate(15deg); -ms-transform: rotate(15deg); }
+  4%{ transform: rotate(-18deg); -ms-transform: rotate(-18deg); }
+  6%{ transform: rotate(18deg); -ms-transform: rotate(18deg); }
+  8%{ transform: rotate(-22deg); -ms-transform: rotate(-22deg); }
+  10%{ transform: rotate(22deg); -ms-transform: rotate(22deg); }
+  12%{ transform: rotate(-18deg); -ms-transform: rotate(-18deg); }
+  14%{ transform: rotate(18deg); -ms-transform: rotate(-18deg); }
+  16%{ transform: rotate(-12deg); -ms-transform: rotate(-12deg); }
+  18%{ transform: rotate(-12deg); -ms-transform: rotate(-12deg); }
+  20%{ transform: rotate(0deg); -ms-transform: rotate(0deg); }
+  }
+/*-------------------------------------------------------------------------------------*/
+  .jump-animate{
+    -webkit-animation:jump 1s ease 0s infinite normal;
+    -moz-animation:jump 1s ease 0s infinite normal;
+    -ms-animation:jump 1s ease 0s infinite normal;
+    animation:jump 1s ease 0s infinite normal;
+    }
+    
+    @-webkit-keyframes jump{
+    0%{ -webkit-transform:translateY(0); transform:translateY(0); }
+    20%{ -webkit-transform:translateY(0); transform:translateY(0); }
+    40%{ -webkit-transform:translateY(-30px); transform:translateY(-30px); }
+    50%{ -webkit-transform:translateY(0); transform:translateY(0); }
+    60%{ -webkit-transform:translateY(-15px); transform:translateY(-15px); }
+    80%{ -webkit-transform:translateY(0); transform:translateY(0); }
+    100%{ -webkit-transform:translateY(0);transform:translateY(0); }
+    }
+    
+    @keyframes jump{
+    0%{ transform:translateY(0); }
+    20%{ transform:translateY(0); }
+    40%{ transform:translateY(-30px); }
+    50%{ transform:translateY(0); }
+    60%{ transform:translateY(-15px); }
+    80%{ transform:translateY(0); }
+    100%{ transform:translateY(0); }
+    }
+/*-------------------------------------------------------------------------------------*/
+    .rotate-diagonal-2 {
+      -webkit-animation: rotate-diagonal-2 0.4s linear infinite both;
+      animation: rotate-diagonal-2 0.4s linear infinite both;
+    }
+    
+    /* ----------------------------------------------
+ * Generated by Animista on 2024-10-16 18:10:0
+ * Licensed under FreeBSD License.
+ * See http://animista.net/license for more info. 
+ * w: http://animista.net, t: @cssanimista
+ * ---------------------------------------------- */
+
+/**
+ * ----------------------------------------
+ * animation rotate-diagonal-2
+ * ----------------------------------------
+ */
+@-webkit-keyframes rotate-diagonal-2 {
+  0% {
+    -webkit-transform: rotate3d(-1, 1, 0, 0deg);
+            transform: rotate3d(-1, 1, 0, 0deg);
+  }
+  50% {
+    -webkit-transform: rotate3d(-1, 1, 0, 180deg);
+            transform: rotate3d(-1, 1, 0, 180deg);
+  }
+  100% {
+    -webkit-transform: rotate3d(-1, 1, 0, 360deg);
+            transform: rotate3d(-1, 1, 0, 360deg);
+  }
+}
+@keyframes rotate-diagonal-2 {
+  0% {
+    -webkit-transform: rotate3d(-1, 1, 0, 0deg);
+            transform: rotate3d(-1, 1, 0, 0deg);
+  }
+  50% {
+    -webkit-transform: rotate3d(-1, 1, 0, 180deg);
+            transform: rotate3d(-1, 1, 0, 180deg);
+  }
+  100% {
+    -webkit-transform: rotate3d(-1, 1, 0, 360deg);
+            transform: rotate3d(-1, 1, 0, 360deg);
+  }
+}
+
+    

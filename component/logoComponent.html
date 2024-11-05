@@ -1,0 +1,165 @@
+<div class="general">
+    <div class="conteneur-logo">
+        <h1>Logo Generator</h1>
+        <div id="background-logo">
+            <span id="logo">
+                EXEMPLE
+            </span>
+            <span id="draggable-logo" class="draggable">Logo</span>
+            <div id="draggable-image" class="draggable"> 
+                <img id="resizable-image" src="https://cdn131.picsart.com/323945103455211.png" alt="Logo" width="100"
+                    height="100" crossorigin="anonymous">
+            </div>
+        </div>
+    </div>
+
+    <div class="logo-editor">
+
+        <div class="text-selector">
+            <label for="text-select-">Texte :</label>
+            <input type="text" name="text-selected" id="text-selected" placeholder="Modifier le texte">
+        </div>
+
+        <div class="animation-selector">
+            <label for="animation-selector"> Animation : </label>
+            <select name="animationPicker" id="animation-selected">
+                <option value="">Aucune</option>
+                <option value="flip-horizontal-bottom">flip-horizontal-bottom</option>
+                <option value="shake-horizontal">shake-horizontal</option>
+            </select>
+        </div>
+
+        <div class="color-selector">
+            <label for="color-select">Couleur :</label>
+            <input type="color" id="colorPicker" name="colorPicker" value="#000000">
+        </div>
+
+        <div class="font-selector">
+            <label for="font-selector">Font size : </label>
+            <input type="range" name="font-selected" id="font-selected" value="16">
+            <span id="font-size-display">16px</span>
+        </div>
+
+        <div class="position-selector">
+            <label for="position-selector">Position : </label>
+            <select name="position-selector" id="position-selected">
+                <option value="haut">Haut</option>
+                <option value="centre">Centre</option>
+                <option value="bas">Bas</option>
+                <option value="gauche">Gauche</option>
+                <option value="droite">Droite</option>
+            </select>
+        </div>
+
+        <div class="orientation-selector">
+            <label for="orientation-selector">Orientation : </label>
+            <select name="orientation-selector" id="orientation-selected">
+                <option value="horizontal">Horizontal</option>
+                <option value="vertical">Vertical</option>
+            </select>
+        </div>
+
+        <div class="background-selector">
+            <label for="background-selected">Texture de fond : </label>
+            <select name="background-selected" id="background-selected">
+                <option value="https://media2.giphy.com/media/l41YcgNSPj6Wy1KyQ/giphy.gif">Texture 1</option>
+                <option value="https://media4.giphy.com/media/3oEduXpUkXpRgAxfAk/giphy.gif">Texture 2</option>
+                <option value="https://media.giphy.com/media/gNke2UrUTopOg/giphy.gif">Texture 3</option>
+                <option value="https://media.giphy.com/media/7Bgpw7PwdxoDC/giphy.gif">Texture 4</option>
+                <option value="https://media.giphy.com/media/13mwsrXEUtSyZi/giphy.gif">Texture 5</option>
+                <option value="https://media1.giphy.com/media/l3vR16pONsV8cKkWk/giphy.gif">Texture 6</option>
+            </select>
+        </div>
+
+        <div class="texture-selector">
+            <label for="texture-selector">Texture du texte :</label>
+            <select name="texture-selector" id="texture-selected">
+                <option value="none">Aucune</option>
+                <option value="texture1">Texture 1</option>
+                <option value="texture2">Texture 2</option>
+                <option value="texture3">Texture 3</option>
+                <option value="texture4">Texture 4</option>
+                <option value="texture5">Texture 5</option>
+                <option value="texture6">Texture 6</option>
+            </select>
+        </div>
+
+        <div class="orientation-selector2">
+            <label for="orientation-selector2">Orientation :</label>
+            <select name="orientation-selector2" id="orientation-selected2">
+                <option value="horizontal">Horizontal</option>
+                <option value="vertical">Vertical</option>
+            </select>
+        </div>
+
+        <div class="text-selector2">
+            <label for="text-selector2">Texte :</label>
+            <input type="text" name="text-selected" id="text-selected2" placeholder="Modifer le texte">
+        </div>
+
+        <div class="font-selector2">
+            <label for="font-selector2">Taille de police : </label>
+            <input type="range" name="font-selected2" id="font-selected2" value="16">
+            <span id="font-size-display2">16px</span>
+        </div>
+
+        <div class="image-sizeable">
+            <label for="image-size-selected">Taille image : </label>
+            <input type="range" id="image-size-selected" min="50" max="500" value="128" />
+            <span id="image-size-display">128px</span>
+        </div>
+
+        <div class="upload-image">
+            <label for="upload-image">Charger une image : </label>
+            <input type="file" id="upload-image" accept="image/*">
+        </div>
+
+        <div class="backgroundColor-selector">
+            <label for="backgroundColor-selector">Couleur de fond : </label>
+            <input type="color" id="backgroundColor" name="backgroundColor" value="#ffffff">
+        </div>
+
+        <div class="background-size">
+            <label for="background-size">Taille de la div : </label>
+            <div class="dimension-input">
+                <label for="background-size-width">Largeur : </label>
+                <input type="number" id="background-size-width" placeholder="Largeur">
+            </div>
+            <div class="dimension-input">
+                <label for="background-size-height">Hauteur : </label>
+                <input type="number" id="background-size-height" placeholder="Hauteur">
+            </div>
+        </div>
+
+        <div class="border-color">
+            <label for="border-color">Couleur de la bordure : </label>
+            <input type="color" id="border-color" name="border-color" value="#000000">
+        </div>
+
+        <div class="shadow-selector">
+            <label for="shadow-selector">Ombre : </label>
+            <input type="checkbox" id="shadow-selector" name="shadow-selector">
+
+            <div id="shadow-options" style="display: none;">
+                <label for="shadow-color">Couleur de l'ombre : </label>
+                <input type="color" id="shadow-color" name="shadow-color" value="#000000">
+                <label for="shadow-distance">Distance de l'ombre : </label>
+                <input type="number" id="shadow-distance" name="shadow-distance" value="0">
+            </div>
+        </div>
+
+
+        <div class="animation-selector">
+            <label for="animation-selector"> Animation : </label>
+            <select name="animationPicker" id="animation-selected2">
+                <option value="">Aucune</option>
+                <option value="shake-animate">shake-animate</option>
+                <option value="jump-animate">jump-animate</option>
+                <option value="rotate-diagonal-2">rotate-diagonal-2</option>
+            </select>
+        </div>
+
+        <button id="downloadButton">Télécharger le Logo</button>
+
+    </div>
+</div>
